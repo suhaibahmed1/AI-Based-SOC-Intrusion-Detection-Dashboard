@@ -35,14 +35,22 @@ Severity is automatically mapped from attack types:
 - **Streamlit**
 - **Pandas**
 - **Plotly / Plotly Express**
-- **Scikit-learn** (used offline for model training, not included in repo)
 
 ---
 
-## 📊 Dataset (Not Included)
+📊 Dataset
 
-- **CICIDS 2017**
-- Dataset files are **not included** due to size limitations
+CICIDS 2017
+
+Dataset files are not included in the repository due to size limitations.
+
+The dashboard automatically downloads the cleaned CSV from Dropbox.
+
+Dropbox URL (internal for app use): https://www.dropbox.com/scl/fi/a8maf87ms7znibbh2lps8/cleaned_cicids2017.csv?dl=1
+
+Expected columns in the CSV:
+
+timestamp
 - Expected columns:
   - `timestamp`
   - `Label`
@@ -56,15 +64,16 @@ Severity is automatically mapped from attack types:
 AI-Based-SOC-Intrusion-Detection-Dashboard/
 │
 ├── dashboard/
-│ ├── app.py # Main Streamlit application
-│ ├── data_loader.py # Data loading & preprocessing
-│ ├── metrics.py # SOC metrics & severity mapping
-│ ├── charts.py # Plotly visualizations
-│ ├── mitre_mapping.py # MITRE ATT&CK mapping logic
-│ └── requirements.txt # Project dependencies
+│── app.py # Main Streamlit application
+│── data_loader.py # Data loading & preprocessing
+│── metrics.py # SOC metrics & severity mapping
+│── charts.py # Plotly visualizations
+│── mitre_mapping.py # MITRE ATT&CK mapping logic
+│── requirements.txt # Project dependencies
 │
 ├── .gitignore
 └── README.md
+
 
 ---
 
@@ -90,6 +99,4 @@ streamlit run dashboard/app.py
 
 
 ⚠️ Note:
-Dataset files must be downloaded separately and are not pushed to GitHub.
-
-
+The dashboard automatically downloads the cleaned CICIDS 2017 CSV from Dropbox if it is not already present locally. No manual dataset download is required.
