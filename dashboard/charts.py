@@ -1,8 +1,8 @@
+# charts.py
 import plotly.express as px
 import pandas as pd
 
-
-def plot_attack_distribution(df):
+def plot_attack_distribution(df: pd.DataFrame):
     return px.histogram(
         df,
         x="Label",
@@ -11,8 +11,9 @@ def plot_attack_distribution(df):
         template="plotly_dark",
     )
 
-
-def plot_severity_distribution(df):
+def plot_severity_distribution(df: pd.DataFrame):
+    if "Severity" not in df.columns:
+        raise ValueError("Severity column not found in dataframe")
     counts = df["Severity"].value_counts().reset_index()
     counts.columns = ["Severity", "Count"]
 
@@ -33,8 +34,7 @@ def plot_severity_distribution(df):
         template="plotly_dark",
     )
 
-
-def plot_attack_trend(df):
+def plot_attack_trend(df: pd.DataFrame):
     temp = df.copy()
     temp["batch"] = temp.index // 50000
 
@@ -54,8 +54,7 @@ def plot_attack_trend(df):
         template="plotly_dark",
     )
 
-
-def plot_detection_overview(df):
+def plot_detection_overview(df: pd.DataFrame):
     benign = (df["Label"] == "BENIGN").sum()
     attack = (df["Label"] != "BENIGN").sum()
 

@@ -1,9 +1,11 @@
-def compute_metrics(df):
-    total_records = len(df)
+# metrics.py
 
+import pandas as pd
+
+def compute_metrics(df: pd.DataFrame) -> dict:
+    total_records = len(df)
     attack_count = (df["Label"] != "BENIGN").sum()
     benign_count = (df["Label"] == "BENIGN").sum()
-
     attack_ratio = round((attack_count / total_records) * 100, 2)
 
     return {
@@ -13,8 +15,7 @@ def compute_metrics(df):
         "attack_ratio": attack_ratio,
     }
 
-
-def add_severity(df):
+def add_severity(df: pd.DataFrame) -> pd.DataFrame:
     severity_map = {
         "DoS Hulk": "Critical",
         "DDoS": "Critical",
@@ -24,10 +25,11 @@ def add_severity(df):
         "PortScan": "Medium",
         "Bot": "Medium",
         "Infiltration": "Medium",
-        "Web Attack – Brute Force": "Low",
-        "Web Attack – XSS": "Low",
-        "Web Attack – Sql Injection": "Low",
+        "Web Attack - Brute Force": "Low",
+        "Web Attack - XSS": "Low",
+        "Web Attack - Sql Injection": "Low",
     }
 
+    # Fill severity; any unknown labels default to "Low"
     df["Severity"] = df["Label"].map(severity_map).fillna("Low")
     return df

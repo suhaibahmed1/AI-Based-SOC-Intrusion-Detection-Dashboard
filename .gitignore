@@ -7,26 +7,9 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data (large files)
-data/*.csv
-
-# Models
-models/*.pkl
-
 # OS
 .DS_Store
 Thumbs.db
 
-# Notebooks & media (ignored for now)
-notebooks/
-screenshots/
-data/
-models/
-
-# Virtual env
-.venv/
-venv/
-
-# Python
-__pycache__/
-*.pyc
+# Local Streamlit files
+.streamlit/
