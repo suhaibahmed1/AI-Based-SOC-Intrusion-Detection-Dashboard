@@ -60,20 +60,21 @@ timestamp
 ## 📁 Project Structure
 
 AI-Based-SOC-Intrusion-Detection-Dashboard/
+
 │
 ├── dashboard/
 
- │── app.py # Main Streamlit application
+ ──│── app.py # Main Streamlit application
  
- │── data_loader.py # Data loading & preprocessing
+  ──│── data_loader.py # Data loading & preprocessing
  
- │── metrics.py # SOC metrics & severity mapping
+ ──│── metrics.py # SOC metrics & severity mapping
  
- │── charts.py # Plotly visualizations
+ ──│── charts.py # Plotly visualizations
  
- │── mitre_mapping.py # MITRE ATT&CK mapping logic
+ ──│── mitre_mapping.py # MITRE ATT&CK mapping logic
  
- │── requirements.txt # Project dependencies
+ ──│── requirements.txt # Project dependencies
 
 ├── .gitignore
 
@@ -105,4 +106,5 @@ streamlit run dashboard/app.py
 
 ⚠️ Note:
 The dashboard automatically downloads the cleaned CICIDS 2017 CSV from Dropbox if it is not already present locally. No manual dataset download is required.
+
 
