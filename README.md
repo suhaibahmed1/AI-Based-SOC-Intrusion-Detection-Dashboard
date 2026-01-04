@@ -104,7 +104,7 @@ pip install -r dashboard/requirements.txt
 streamlit run dashboard/app.py
 
 
-⚠️ Note:
-The dashboard automatically downloads the cleaned CICIDS 2017 CSV from Dropbox if it is not already present locally. No manual dataset download is required.
+
+
 
 
