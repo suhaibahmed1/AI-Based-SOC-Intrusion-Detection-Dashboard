@@ -2,14 +2,20 @@
 import pandas as pd
 
 def load_data(csv_path: str) -> pd.DataFrame:
-    """
-    Load CICIDS 2017 CSV, clean column names and labels.
-    """
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(
+    csv_path,
+    sep=",",
+    engine="python",
+    on_bad_lines="skip",
+    encoding="utf-8",
+)
+
     df.columns = df.columns.str.strip()
-    
-    # Clean Label column
-    df["Label"] = df["Label"].str.strip()                    # remove spaces
-    df["Label"] = df["Label"].str.replace("–", "-", regex=False)  # replace en-dash with hyphen
-    
+
+    # Ensure timestamp exists and is datetime
+    if "timestamp" in df.columns:
+        df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+        # Drop rows with invalid timestamps
+        df = df.dropna(subset=["timestamp"])
+
     return df
