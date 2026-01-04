@@ -44,9 +44,9 @@ CICIDS 2017
 
 Dataset files are not included in the repository due to size limitations.
 
-The dashboard automatically downloads the cleaned CSV from Dropbox.
+You can download the cleaned_cicids2017.csv.
 
-Dropbox URL (internal for app use): https://www.dropbox.com/scl/fi/a8maf87ms7znibbh2lps8/cleaned_cicids2017.csv?dl=1
+Drive URL: https://drive.google.com/file/d/1a0LnbAUQYpG91Aufq8rmqjEucnN5Bdxb/view?usp=drive_link
 
 Expected columns in the CSV:
 
@@ -55,8 +55,6 @@ timestamp
   - `timestamp`
   - `Label`
 
-👉 Download the dataset separately (e.g., from Kaggle) and place it locally when running the dashboard.
-
 ---
 
 ## 📁 Project Structure
@@ -64,14 +62,21 @@ timestamp
 AI-Based-SOC-Intrusion-Detection-Dashboard/
 │
 ├── dashboard/
-│── app.py # Main Streamlit application
-│── data_loader.py # Data loading & preprocessing
-│── metrics.py # SOC metrics & severity mapping
-│── charts.py # Plotly visualizations
-│── mitre_mapping.py # MITRE ATT&CK mapping logic
-│── requirements.txt # Project dependencies
-│
+
+ │── app.py # Main Streamlit application
+ 
+ │── data_loader.py # Data loading & preprocessing
+ 
+ │── metrics.py # SOC metrics & severity mapping
+ 
+ │── charts.py # Plotly visualizations
+ 
+ │── mitre_mapping.py # MITRE ATT&CK mapping logic
+ 
+ │── requirements.txt # Project dependencies
+
 ├── .gitignore
+
 └── README.md
 
 
@@ -100,3 +105,4 @@ streamlit run dashboard/app.py
 
 ⚠️ Note:
 The dashboard automatically downloads the cleaned CICIDS 2017 CSV from Dropbox if it is not already present locally. No manual dataset download is required.
+
